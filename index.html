@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresher Jobs Portal - Start Your Career Journey</title>
+    <link rel="stylesheet" href="style-new.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-briefcase"></i>
+                <span>CareerPortal</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#jobs" class="nav-link">Jobs</a>
+                <a href="#companies" class="nav-link">Companies</a>
+                <a href="#resources" class="nav-link">Resources</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-right">
+                <button class="nav-btn" id="profileToggle">
+                    <i class="fas fa-user"></i>
+                    My Profile
+                </button>
+                <button class="nav-btn" id="chatToggle">
+                    <i class="fas fa-robot"></i>
+                    AI Career Guide
+                    <span class="btn-subtitle">Career Advice & Tips</span>
+                </button>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Unique Hero Section with Split Design -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-content">
+                    <h1>Start Your Career Journey</h1>
+                    <p>Perfect entry-level opportunities for fresh graduates and beginners looking to launch their professional careers</p>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-search-container">
+                    <h3 class="hero-search-title">Find Your Perfect Job</h3>
+                    <div class="hero-search">
+                        <div class="search-input-group">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="heroSearchInput" placeholder="Job title, company, or keywords..." autocomplete="off">
+                            <div class="search-suggestions" id="searchSuggestions"></div>
+                        </div>
+                        <div class="location-input-group">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" id="locationInput" placeholder="Location">
+                        </div>
+                        <button class="search-btn-main" id="heroSearchBtn">
+                            Search Jobs
+                        </button>
+                        
+                        <div class="quick-filters">
+                            <span class="filter-label">Popular for Freshers:</span>
+                            <button class="quick-filter" data-search="internship">Internship</button>
+                            <button class="quick-filter" data-search="trainee">Trainee</button>
+                            <button class="quick-filter" data-search="junior">Junior</button>
+                            <button class="quick-filter" data-search="no experience">No Experience</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Fresher Jobs</p>
+            </div>
+            <div class="stat-item">
+                <h3>200+</h3>
+                <p>Hiring Companies</p>
+            </div>
+            <div class="stat-item">
+                <h3>10K+</h3>
+                <p>Freshers Placed</p>
+            </div>
+            <div class="stat-item">
+                <h3>90%</h3>
+                <p>Training Success</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Filter Section - Card-Based Design -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <div class="filter-header">
+                <h2>Fresher Opportunities</h2>
+            </div>
+            
+            <div class="filter-tabs-container">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-category="all">
+                        <i class="fas fa-th"></i>
+                        All Jobs
+                    </button>
+                    <button class="filter-tab" data-category="Programming">
+                        <i class="fas fa-code"></i>
+                        Programming
+                    </button>
+                    <button class="filter-tab" data-category="Data Science">
+                        <i class="fas fa-chart-bar"></i>
+                        Data Science
+                    </button>
+                    <button class="filter-tab" data-category="Cybersecurity">
+                        <i class="fas fa-shield-alt"></i>
+                        Cybersecurity
+                    </button>
+                </div>
+            </div>
+            
+            <div class="filter-options-container">
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <label>Job Type</label>
+                        <select id="jobTypeFilter">
+                            <option value="">All Types</option>
+                            <option value="full-time">Full Time</option>
+                            <option value="part-time">Part Time</option>
+                            <option value="contract">Contract</option>
+                            <option value="internship">Internship</option>
+                            <option value="trainee">Trainee</option>
+                            <option value="remote">Remote</option>
+                            <option value="freelance">Freelance</option>
+                        </select>
+                        <div class="job-counts" id="jobTypeCounts">
+                            <span class="count-badge">0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Experience Level</label>
+                        <select id="experienceFilter">
+                            <option value="">All Experience</option>
+                            <option value="No Experience">No Experience</option>
+                            <option value="Entry Level">Entry Level</option>
+                            <option value="Mid Level">Mid Level</option>
+                            <option value="Trainee">Trainee</option>
+                            <option value="Senior Level">Senior Level</option>
+                        </select>
+                        <div class="experience-counts" id="experienceCounts">
+                            <span class="count-badge">0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Salary Range</label>
+                        <select id="salaryFilter">
+                            <option value="">All Salaries</option>
+                            <option value="0-25">$0 - $25K</option>
+                            <option value="25-40">$25K - $40K</option>
+                            <option value="40-60">$40K - $60K</option>
+                            <option value="60+">$60K+</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button class="clear-filters-btn" id="clearFilters">Clear All Filters</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Listings -->
+    <main class="main-content" id="jobs">
+        <div class="container">
+            <div class="jobs-header">
+                <div class="results-info">
+                    <h2>Fresher Jobs Available</h2>
+                    <p class="results-count"><span id="resultsCount">0</span> opportunities found</p>
+                </div>
+                <div class="sort-options">
+                    <label>Sort by:</label>
+                    <select id="sortSelect">
+                        <option value="recent">Most Recent</option>
+                        <option value="relevant">Most Relevant</option>
+                        <option value="salary-high">Salary: High to Low</option>
+                        <option value="salary-low">Salary: Low to High</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="jobs-grid" id="jobsGrid">
+                <!-- Jobs will be dynamically loaded here -->
+            </div>
+            
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-content">
+                    <i class="fas fa-search"></i>
+                    <h3>No jobs found</h3>
+                    <p>Try adjusting your search terms or filters</p>
+                    <button class="clear-filters-btn" id="clearFilters">Clear All Filters</button>
+                </div>
+            </div>
+            
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">Load More Jobs</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Job Application Modal -->
+    <div class="modal" id="applicationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Apply for Position</h2>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="applicationForm">
+                    <div class="form-group">
+                        <label for="jobTitle">Position</label>
+                        <input type="text" id="jobTitle" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resume">Resume Upload *</label>
+                        <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
+                        <small>Accepted formats: PDF, DOC, DOCX (Max 5MB)</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="coverLetter">Cover Letter</label>
+                        <textarea id="coverLetter" rows="4" placeholder="Tell us why you're interested in this position..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        <div class="success-content">
+            <i class="fas fa-check-circle"></i>
+            <h3>Application Submitted Successfully!</h3>
+            <p>Your application has been submitted. We'll get back to you soon.</p>
+            <button class="ok-btn" id="okBtn">OK</button>
+        </div>
+    </div>
+
+    <!-- User Profile Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Your Profile</h2>
+                <button class="close-btn" id="closeProfileModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="userName">Your Name *</label>
+                        <input type="text" id="userName" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userEmail">Email Address *</label>
+                        <input type="email" id="userEmail" required placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userPhone">Phone Number</label>
+                        <input type="tel" id="userPhone" placeholder="+91 98765 43210">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Preferred Job Categories *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="preferences" value="Programming">
+                                <span class="checkmark"></span>
+                                Programming
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="preferences" value="Data Science">
+                                <span class="checkmark"></span>
+                                Data Science
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="preferences" value="Cybersecurity">
+                                <span class="checkmark"></span>
+                                Cybersecurity
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userLocation">Preferred Location</label>
+                        <select id="userLocation">
+                            <option value="">Any Location</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Remote">Remote</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userExperience">Experience Level</label>
+                        <select id="userExperience">
+                            <option value="entry" selected>Entry Level (0-1 years)</option>
+                            <option value="internship">Internship</option>
+                            <option value="trainee">Trainee</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="userSkills">Your Skills (comma separated)</label>
+                        <textarea id="userSkills" rows="3" placeholder="JavaScript, Python, React, SQL, etc."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Create Profile</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About CareerPortal</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Gateway to Career Success</h3>
+                    <p>CareerPortal is a comprehensive job search platform designed to connect talented professionals with their dream careers. We provide personalized job matching, career guidance, and valuable resources to help you succeed in your professional journey.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-search"></i>
+                            <h4>Smart Job Search</h4>
+                            <p>Advanced filters and AI-powered recommendations</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-robot"></i>
+                            <h4>AI Career Guide</h4>
+                            <p>Get personalized advice and interview tips</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-building"></i>
+                            <h4>Top Companies</h4>
+                            <p>Connect with leading employers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section id="companies" class="section">
+        <div class="container">
+            <h2>Top Companies Hiring</h2>
+            <div class="companies-grid">
+                <div class="company-card">
+                    <img src="https://picsum.photos/seed/tcs-logo/150/80.jpg" alt="TCS">
+                    <h4>Tata Consultancy Services</h4>
+                    <p>Leading IT services company</p>
+                    <span class="job-count">25+ Jobs</span>
+                </div>
+                <div class="company-card">
+                    <img src="https://picsum.photos/seed/infosys-logo/150/80.jpg" alt="Infosys">
+                    <h4>Infosys</h4>
+                    <p>Global consulting and IT services</p>
+                    <span class="job-count">18+ Jobs</span>
+                </div>
+                <div class="company-card">
+                    <img src="https://picsum.photos/seed/wipro-logo/150/80.jpg" alt="Wipro">
+                    <h4>Wipro</h4>
+                    <p>IT consulting and business process services</p>
+                    <span class="job-count">15+ Jobs</span>
+                </div>
+                <div class="company-card">
+                    <img src="https://picsum.photos/seed/microsoft-logo/150/80.jpg" alt="Microsoft">
+                    <h4>Microsoft</h4>
+                    <p>Technology and cloud solutions</p>
+                    <span class="job-count">12+ Jobs</span>
+                </div>
+                <div class="company-card">
+                    <img src="https://picsum.photos/seed/google-logo/150/80.jpg" alt="Google">
+                    <h4>Google</h4>
+                    <p>Search and technology giant</p>
+                    <span class="job-count">10+ Jobs</span>
+                </div>
+                <div class="company-card">
+                    <img src="https://picsum.photos/seed/amazon-logo/150/80.jpg" alt="Amazon">
+                    <h4>Amazon</h4>
+                    <p>E-commerce and cloud computing</p>
+                    <span class="job-count">8+ Jobs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="section">
+        <div class="container">
+            <h2>Career Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>Resume Builder</h4>
+                    <p>Create professional resumes with our templates</p>
+                    <button class="resource-btn">Get Started</button>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-video"></i>
+                    <h4>Interview Prep</h4>
+                    <p>Practice with mock interviews and tips</p>
+                    <button class="resource-btn">Start Practice</button>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Skill Assessment</h4>
+                    <p>Test your skills and get improvement suggestions</p>
+                    <button class="resource-btn">Take Test</button>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-book"></i>
+                    <h4>Career Guides</h4>
+                    <p>Industry-specific career advice and insights</p>
+                    <button class="resource-btn">Read More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>We're here to help you find your dream job. Reach out to us with any questions or feedback.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@careerportal.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 6360106277</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bangalore, Karnataka 560001</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3><i class="fas fa-robot"></i> AI Career Guide</h3>
+            <button class="minimize-btn" id="minimizeChat">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="message bot-message">
+                <i class="fas fa-robot"></i>
+                <p>Hello! I'm your AI Career Guide. Ask me anything about career paths, skills development, job searching tips, or industry trends!</p>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <div class="input-group">
+                <input type="text" id="chatInput" placeholder="Ask me about careers, jobs, or skills...">
+                <button class="file-upload-btn" id="fileUploadBtn" title="Upload file">
+                    <i class="fas fa-paperclip"></i>
+                </button>
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <input type="file" id="fileInput" accept="image/*,.pdf,.doc,.docx,.txt" style="display: none;">
+            <div class="file-preview" id="filePreview" style="display: none;">
+                <div class="file-info">
+                    <i class="fas fa-file"></i>
+                    <span class="file-name"></span>
+                    <button class="remove-file" id="removeFile">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Career Opportunity Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
